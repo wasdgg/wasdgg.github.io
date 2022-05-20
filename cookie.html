@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    img{width:300px;}
+  </style>
+  <body>
+    <script type="text/javascript">
+      count=0;
+      function cookie_click() {
+        span=document.getElementById('cookie_count');
+        count++;
+        span.textContent=count;
+      }
+      function grandma() {
+        setInterval(autoCountUp,1000);
+      }
+      function autoCountUp() {
+        count++;
+        span=document.getElementById('cookie_count');
+        span.textContent=count;
+      }
+    </script>
+    <p><span id="cookie_count"></span>枚</p>
+    <img onclick="cookie_click()" src="cookie.jpg" alt="">
+    <ul>
+      <li onclick="grandma()">グランマ</li>
+      <li>ファーム</li>
+
+    </ul>
+  </body>
+</html>
