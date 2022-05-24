@@ -10,25 +10,44 @@
   <body>
     <script type="text/javascript">
       count=0;
+      grandma_count=0;
+      farm_count=0;
+
+      setInterval(screen_update,10);
+      function screen_update() {
+        span=document.getElementById('cookie_count');
+        span.textContent=count;
+      }
+      document.cookie="cookie_count=100"
       function cookie_click() {
         span=document.getElementById('cookie_count');
         count++;
         span.textContent=count;
       }
       function grandma() {
-        setInterval(autoCountUp,1000);
+        if(count>=100){
+          count-=100;
+          grandma_count++;
+          setInterval(autoCountUp,1000,1);
+        }
       }
-      function autoCountUp() {
-        count++;
-        span=document.getElementById('cookie_count');
-        span.textContent=count;
+      function farm() {
+        if(count>=1000){
+          count-=1000;
+          farm_count++;
+          setInterval(autoCountUp,1000,8);
+        }
+      }
+
+      function autoCountUp(num) {
+        count+=num;
       }
     </script>
     <p><span id="cookie_count"></span>枚</p>
     <img onclick="cookie_click()" src="cookie.jpg" alt="">
     <ul>
       <li onclick="grandma()">グランマ</li>
-      <li>ファーム</li>
+      <li onclick="farm()">ファーム</li>
 
     </ul>
   </body>
