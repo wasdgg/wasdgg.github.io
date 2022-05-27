@@ -12,6 +12,16 @@
       count=0;
       grandma_count=0;
       farm_count=0;
+      let ls_count=localStorage.getItem("ls_count");
+      if(ls_count){
+        count=parseInt(ls_count);
+      }else{
+        count=0;
+      }
+      setInterval(save_action,1000);
+      function save_action() {
+        localStorage.setItem("ls_count",count);
+      }
 
       setInterval(screen_update,10);
       function screen_update() {
@@ -20,9 +30,7 @@
       }
       document.cookie="cookie_count=100"
       function cookie_click() {
-        span=document.getElementById('cookie_count');
         count++;
-        span.textContent=count;
       }
       function grandma() {
         if(count>=100){
