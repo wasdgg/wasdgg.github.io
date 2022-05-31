@@ -5,7 +5,16 @@
     <title></title>
   </head>
   <style media="screen">
-    img{width:300px;}
+    img{width:260px;}
+    .container{display:flex;
+                height:100vh;}
+    .item1{flex-grow:2;
+            background-image:url("bgBlue.jpg");
+            height:100vh;}
+    .item2{flex-grow:4;
+            background-color:green;}
+    .item3{flex-grow:3;
+            background-color:orange;}
   </style>
   <body>
     <script type="text/javascript">
@@ -47,16 +56,33 @@
         }
       }
 
+      function juice() {
+        if(count>=10000){
+          count-=10000;
+          farm_count++;
+          setInterval(autoCountUp,1000,999);
+        }
+      }
+
       function autoCountUp(num) {
         count+=num;
       }
     </script>
-    <p><span id="cookie_count"></span>枚</p>
-    <img onclick="cookie_click()" src="cookie.jpg" alt="">
-    <ul>
-      <li onclick="grandma()">グランマ</li>
-      <li onclick="farm()">ファーム</li>
-
-    </ul>
+    <div class="container">
+    <div class="item1">
+      <p><span id="cookie_count"></span>枚</p>
+      <img onclick="cookie_click()" src="cookie.jpg" alt="">
+    </div>
+    <div class="item2">
+      製作途中
+    </div>
+    <div class="item3">
+      <ul>
+        <li onclick="grandma()">グランマ</li>
+        <li onclick="farm()">ファーム</li>
+        <li onclick="juice()">ジュース</li>
+      </ul>
+    </div>
+    </div>
   </body>
 </html>
