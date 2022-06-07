@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <style media="screen">
     img{width:260px;}
     .container{display:flex;
@@ -31,7 +35,6 @@
       function save_action() {
         localStorage.setItem("ls_count",count);
       }
-
       setInterval(screen_update,10);
       function screen_update() {
         span=document.getElementById('cookie_count');
@@ -39,6 +42,10 @@
       }
       document.cookie="cookie_count=100"
       function cookie_click() {
+        var cookie_img=document.getElementById('cookie_img');
+        cookie_img.classList.remove('animate__animated','animate__shakeY');
+        void cookie_img.offsetWidth;
+        cookie_img.classList.add('animate__animated','animate__shakeY');
         count++;
       }
       function grandma() {
@@ -57,8 +64,8 @@
       }
 
       function juice() {
-        if(count>=10000){
-          count-=10000;
+        if(count>=100000){
+          count-=100000;
           farm_count++;
           setInterval(autoCountUp,1000,999);
         }
@@ -70,8 +77,8 @@
     </script>
     <div class="container">
     <div class="item1">
-      <p><span id="cookie_count"></span>枚</p>
-      <img onclick="cookie_click()" src="cookie.jpg" alt="">
+      <p class="animate__animated animate__bounce"><span id="cookie_count"></span>枚</p>
+      <img id="cookie_img" onclick="cookie_click(1)" src="cookie.jpg" alt="">
     </div>
     <div class="item2">
       製作途中
